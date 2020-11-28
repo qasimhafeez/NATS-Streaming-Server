@@ -12,7 +12,7 @@ stan.on("connect", () => {
   const data = JSON.stringify({
     id: "1",
     account_number: "PK555",
-    price: 500,
+    balance: 500,
   });
 
   stan.publish("ticket:created", data, () => {
