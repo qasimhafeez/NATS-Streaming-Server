@@ -7,11 +7,11 @@ const stan = nats.connect("tickets", "pb_id", {
   url: "http://localhost:4222",
 });
 
-stan.on("connect", () => {
+stan.on("connect", async () => {
   console.log("Publisher connected to NATS");
 
   const publisher = new TicketCreatedPublisher(stan);
-  publisher.publish({
+  await publisher.publish({
     id: "1",
     account_number: "PK555",
     balance: 500,
